@@ -1,10 +1,17 @@
-<!DOCTYPE html>
 <html>
   <body>
-    <h1>Live streaming</h1>
-    <div>
-      <img src="{{ url_for('video') }}" width="50%" />
-      <h1>{{counter}}</h1>
-    </div>
+ 
+    <form action="{{ url_for('run_function') }}" method="post">
+      <label for="function-select">Select a function:</label>
+      <select name="function-select" id="function-select">
+          <option value="curl">Bicep curls</option>
+          <option value="pushup">Pushups</option>
+          <option value="pullup">Pullups</option>
+          <option value="squat">squats</option>
+      </select>
+      <input type="submit" value="Run">
+  </form>
   </body>
+  
+
 </html>

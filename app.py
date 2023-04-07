@@ -1,5 +1,5 @@
 
-from flask import Flask,render_template,Response
+from flask import Flask,render_template,Response,request
 import cv2
 import mediapipe as mp
 from curls import curls_fn
@@ -101,9 +101,35 @@ def pushups():
 def index():
     return render_template('index.html')
 
-@app.route('/video')
-def video():
+@app.route('/curl')
+def curl():
+    return Response(curls(),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/pushup')
+def pushup():
     return Response(pushups(),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/pullup')
+def pullup():
+    return Response(pushups(),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/squat')
+def squat():
+    return Response(pushups(),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/run-function', methods=['POST'])
+def run_function():
+    selected_function = request.form['function-select']
+    
+    if selected_function == 'pushup':
+        render_template('pushup.html', counter=selected_function)
+    elif selected_function == 'pullup':
+        render_template('pullup.html', counter=selected_function)
+    elif selected_function == 'squat':
+        render_template('squat.html', counter=selected_function)
+
+    return render_template('curl.html', counter=selected_function)
+
 
 if __name__=="__main__":
     app.run(debug=True)
