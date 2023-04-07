@@ -10,11 +10,12 @@ from push_ups import pushups_fn
 
 
 app=Flask(__name__)
-camera=cv2.VideoCapture(0)
+
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
 def curls():
+    camera=cv2.VideoCapture(0)
     counter=0
     stage="down"
     with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
@@ -33,9 +34,11 @@ def curls():
 
             yield(b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+    camera.release()
+    cv2.destroyAllWindows()
 
 def squats():
-
+    camera=cv2.VideoCapture(0)
     counter = 0
     rep_started = False
     rep_completed = False
@@ -55,8 +58,11 @@ def squats():
 
             yield(b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+    camera.release()
+    cv2.destroyAllWindows()
 
 def pullups():
+    camera=cv2.VideoCapture(0)
     counter = 0
     is_counting = False
     rep_completed = False
@@ -76,8 +82,11 @@ def pullups():
 
             yield(b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+    camera.release()
+    cv2.destroyAllWindows()
 
 def pushups():
+    camera=cv2.VideoCapture(0)
     counter = 0
     is_counting = False
     rep_completed = False
@@ -97,6 +106,8 @@ def pushups():
 
             yield(b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+    camera.release()
+    cv2.destroyAllWindows()
 @app.route('/')
 def index():
     return render_template('index.html')
