@@ -1,8 +1,21 @@
 <html>
-  <body>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="h-screen flex justify-center items-center gap-5">
     <img src="{{ url_for('curl') }}" width="50%" />
-    
-  </body>
-  
+    <a href="/" class="flex justify-center items-center">
+      <button
+        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 w-32 rounded-lg shadow-lg transition duration-300 ease-in-out">
+        Return
+      </button>
+    </a>
+  </div>
+
+
+</body>
 
 </html>

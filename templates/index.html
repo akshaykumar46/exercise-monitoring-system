@@ -1,17 +1,55 @@
-<html>
-  <body>
- 
-    <form action="{{ url_for('run_function') }}" method="post">
-      <label for="function-select">Select a function:</label>
-      <select name="function-select" id="function-select">
-          <option value="curl">Bicep curls</option>
-          <option value="pushup">Pushups</option>
-          <option value="pullup">Pullups</option>
-          <option value="squat">squats</option>
-      </select>
-      <input type="submit" value="Run">
-  </form>
-  </body>
-  
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise App</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="flex">
+    <ul class="flex gap-20 px-10 text-gray-400 hover:text-gray-500 transition duration-300 ease-in-out">
+      <li class="ml-4"><a href="#" class="hover:text-gray-500">Exercise Monitoring System</a></li>
+      <li class="ml-4"><a href="#" class="hover:text-gray-500">Home</a></li>
+    </ul>
+  </nav>
+  <div class="h-screen flex items-center">
+  <div class="max-w-6xl mx-auto pr-4 flex flex-col md:flex-row items-center justify-center">
+    <div class="md:w-3/4">
+      <img
+        src="https://static.vecteezy.com/system/resources/previews/011/674/829/original/3d-young-man-with-fitness-equipment-fitness-gym-concept-kettle-ball-gym-dumbbell-fitness-mat-bottle-on-purple-background-muscle-exercise-bodybuilding-3d-rendering-png.png"
+        alt="exercise image" class="w-full rounded-lg ">
+    </div>
+    <div class="md:w-1/2  mt-8 md:mt-0">
+      <h1 class="text-4xl font-bold mb-8">Get Fit with Our Exercise App</h1>
+      <p class="text-lg mb-12">Our app offers a wide range of exercises to help you stay healthy and active. Select an
+        exercise to get started</p>
+      <div class="grid grid-cols-1 gap-8">
+        <div class="border-2 border-blue-500 rounded-lg flex justify-center py-2">
+          Select Training Below
+        </div>
+
+        <form action="{{ url_for('run_function') }}" method="post">
+          <div class="flex justify-center gap-8">
+            <select name="function-select" id="function-select"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 w-40 rounded-lg shadow-lg transition duration-300 ease-in-out">
+              <option value="curl" class="bg-white text-black">Bicep-curls</option>
+              <option value="pushup" class="bg-white text-black">Push-ups</option>
+              <option value="pullup" class="bg-white text-black">Pull-ups</option>
+              <option value="squat" class="bg-white text-black">Squats</option>
+            </select>
+            <input type="submit" value="Run"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 w-40 rounded-lg shadow-lg transition duration-300 ease-in-out" />
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 
 </html>
