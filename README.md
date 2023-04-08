@@ -16,7 +16,7 @@ Before running the app, you must have the following installed:
 Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/workout-reps-calculator.git
+git clone https://github.com/akshaykumar46/exercise-monitoring-system.git
 ```
 
 Navigate to the project directory:
